@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sapo Ecoaventuras</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Tela inicial -->
+       <!-- Tela inicial -->
+<div class="tela" id="tela-inicial">
+    <!-- Imagem do nome do jogo no topo -->
+    <img src="EcoAventuras/3.png" id="nome-jogo" alt="Nome do Jogo">
+    
+    <h1>Versão Demonstração</h1>
+    
+    <!-- Imagem do sapinho na parte inferior -->
+    
+    
+    <button onclick="mudarTela('tela-mapa')">Iniciar</button>
+</div>
+
+
+        <!-- Tela do mapa -->
+        <div class="tela" id="tela-mapa">
+            <img src="EcoAventuras/JogoExtensão.png" id="imagem-mapa" alt="Mapa da Amazônia" width="30px">
+            <button onclick="mudarTela('tela-gameplay')">Amazônia (desbloqueada)</button>
+        </div>
+
+        <!-- Tela de gameplay -->
+        <div class="tela" id="tela-gameplay">
+            <div id="rio">
+                <img src="EcoAventuras/Blue Wallpaper.jpeg" id="imagem-rio" alt="Rio">
+                <!-- Lixos -->
+                <img src="EcoAventuras/papel.png" class="lixo" data-tipo="papel" style="top: 50px; left: 100px;" alt="Papel">
+                <img src="EcoAventuras/sacola.png" class="lixo" data-tipo="plastico" style="top: 100px; left: 200px;" alt="Plástico">
+                <img src="EcoAventuras/orgânico1.png" class="lixo" data-tipo="organico" style="top: 150px; left: 300px;" alt="Orgânico">
+                <img src="EcoAventuras/lata.png" class="lixo" data-tipo="metal" style="top: 200px; left: 400px;" alt="Metal">
+                
+            </div>
+
+            <!-- Lixeiras -->
+            <div id="lixeiras">
+                <div class="lixeira azul" data-tipo="papel">Jogue Aqui</div>
+                <div class="lixeira vermelho" data-tipo="plastico">Jogue Aqui</div>
+                <div class="lixeira verde" data-tipo="vidro">Jogue Aqui</div>
+                <div class="lixeira amarelo" data-tipo="metal">Jogue Aqui</div>
+                <div class="lixeira marrom" data-tipo="organico">Jogue Aqui</div>
+                <div class="lixeira cinza" data-tipo="nao-reciclavel">Jogue Aqui</div>
+            </div>
+
+            <!-- Feedback -->
+            <div id="mensagem"></div>
+
+            <!-- Imagem abaixo das lixeiras -->
+            <div id="imagem-lixeira-final">
+                <img src="EcoAventuras/legenda.png" alt="Imagem de Lixeira" class="legenda"> 
+            </div>
+        </div>
+
+        <!-- Tela final -->
+        <div class="tela" id="tela-final">
+            <h1>Você completou a Demo!</h1>
+            <p>Não há mais áreas para desbloquear nesta versão do jogo.</p>
+            <button onclick="mudarTela('tela-inicial')">Voltar para Início</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

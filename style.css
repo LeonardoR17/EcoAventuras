@@ -1,0 +1,217 @@
+/* Estilo geral */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #eef6f9;
+  overflow: hidden;
+}
+
+#app {
+  text-align: center;
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+}
+
+.tela {
+  display: none;
+}
+
+.tela.active {
+  display: block;
+}
+
+/* Botões */
+button {
+  padding: 10px 20px;
+  margin-top: 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background: #0077be;
+  color: white;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #005f91;
+}
+
+/* Mapa */
+#imagem-mapa {
+  width: 40%;
+  max-width: 800px;
+  height: auto;
+  margin-bottom: 20px;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Tela do rio */
+#rio {
+  position: relative;
+  width: 80%;
+  height: 300px;
+  background: #a2d9ff;
+  margin: 20px auto;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap; /* Flexível, ajusta automaticamente os lixos */
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+#imagem-rio {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Lixos no rio */
+.lixo {
+  position: absolute;
+  width: 50px;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.lixo.selecionado {
+  transform: scale(1.1);
+}
+
+/* Lixeiras */
+#lixeiras {
+  display: grid; /* Usando grid para criar duas colunas */
+  grid-template-columns: repeat(3, 1fr); /* Duas colunas */
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.lixeira {
+  padding: 10px 20px;
+  color: white; /* Texto branco para destacar */
+  border-radius: 5px;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+/* Cores das lixeiras */
+.lixeira[data-tipo="papel"] {
+  background-color: #0077be; /* Verde */
+}
+
+.lixeira[data-tipo="plastico"] {
+  background-color: #ff0000; /* Azul */
+}
+
+.lixeira[data-tipo="vidro"] {
+  background-color: #4caf50; /* Vermelho */
+}
+
+.lixeira[data-tipo="metal"] {
+  background-color: #ffeb3b; /* Amarelo */
+}
+
+.lixeira[data-tipo="organico"] {
+  background-color: #795548; /* Marrom */
+}
+
+.lixeira[data-tipo="nao-reciclavel"] {
+  background-color: #9e9e9e; /* Cinza */
+}
+
+/* Efeito de hover */
+.lixeira:hover {
+  opacity: 0.8;
+}
+
+/* Feedback */
+#mensagem {
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  display: none;
+  font-size: 1.2rem;
+}
+
+#mensagem.sucesso {
+  background-color: #4caf50;
+  color: white;
+}
+
+#mensagem.erro {
+  background-color: #f44336;
+  color: white;
+}
+
+/* Botões de lixo */
+#botoes-lixos {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.btn-lixo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
+
+.legenda{
+  padding: 15px;
+}
+
+
+* Ajuste das imagens de lixo específicas */
+.lixo[data-tipo="organico"],
+.lixo[data-tipo="metal"] {
+  width: 18%; /* Menor que os outros lixos para garantir que caibam */
+  max-width: 45px; /* Largura máxima ajustada */
+}
+
+@media (max-width: 768px) {
+  #rio {
+    width: 90%; /* O rio ocupa mais a tela */
+    height: 250px; /* Altura ajustada */
+  }
+
+  .lixo {
+    width: 25%; /* A largura dos lixos aumenta em telas menores */
+    max-width: 40px;
+  }
+
+  .lixo[data-tipo="organico"],
+  .lixo[data-tipo="metal"] {
+    width: 22%; /* Ajuste para as imagens de orgânico e lata */
+  }
+}
+
+@media (max-width: 480px) {
+  #rio {
+    width: 100%; /* O rio ocupa 100% da tela */
+    height: 200px; /* Altura ajustada */
+  }
+
+  .lixo {
+    width: 30%; /* A largura dos lixos aumenta ainda mais em telas pequenas */
+    max-width: 35px;
+  }
+
+  .lixo[data-tipo="organico"],
+  .lixo[data-tipo="metal"] {
+    width: 25%; /* Ajuste específico para orgânico e lata */
+  }
+}
